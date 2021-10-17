@@ -69,6 +69,9 @@
 .slider-content img {
   display: block;
   margin: auto;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
 }
 
 .slider__navigation {
@@ -84,21 +87,23 @@
   height: 1.5rem;
   background-color: #333;
   background-clip: content-box;
-  border: 0.25rem solid transparent;
+  border: 0.35rem solid transparent;
   border-radius: 50%;
   font-size: 0;
+  cursor: pointer;
+  transition: all 0.5s linear;
+}
+
+.slider__label:hover {
+  background-color: aqua;
+}
+.slider__label:active {
+  transition: unset;
+  background-color: rgb(98, 22, 165);
 }
 
 .slider__input {
   display: none;
-}
-
-.slider__navigation-list,
-.slider__navigation-item {
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .slider__navigation-button {
@@ -113,28 +118,37 @@
   transition: transform 0.1s;
 }
 
-#radio1:checked ~ .slider__container .slider__items {
-  transform: translateX(0%);
-}
-#radio2:checked ~ .slider__container .slider__items {
-  transform: translateX(-100%);
+#radio1:checked ~ .slider__navigation .slider__label:nth-of-type(1) {
+  background-color: red;
 }
 
-#radio3:checked ~ .slider__container .slider__items {
-  transform: translateX(-200%);
+#radio2:checked ~ .slider__navigation .slider__label:nth-of-type(2) {
+  background-color: red;
 }
-#radio4:checked ~ .slider__container .slider__items {
-  transform: translateX(-300%);
+
+#radio3:checked ~ .slider__navigation .slider__label:nth-of-type(3) {
+  background-color: red;
 }
+
+#radio4:checked ~ .slider__navigation .slider__label:nth-of-type(4) {
+  background-color: red;
+}
+
+#radio1:checked ~ .slider__container .slider__items,
 #radio1:checked ~ .slider__mems .slider__items {
   transform: translateX(0%);
 }
+#radio2:checked ~ .slider__container .slider__items,
 #radio2:checked ~ .slider__mems .slider__items {
   transform: translateX(-100%);
 }
+
+#radio3:checked ~ .slider__container .slider__items,
 #radio3:checked ~ .slider__mems .slider__items {
   transform: translateX(-200%);
 }
+
+#radio4:checked ~ .slider__container .slider__items,
 #radio4:checked ~ .slider__mems .slider__items {
   transform: translateX(-300%);
 }
