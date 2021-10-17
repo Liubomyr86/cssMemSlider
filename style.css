@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  row-gap: 2rem;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.slider__container {
+  width: 65vw;
+  display: inline-flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  /* margin: auto; */
+}
+
+.slider__items {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  /* padding-right: 10px; */
+  transition: transform 1s;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+}
+
+.slider__mems {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  display: inline-flex;
+  width: 59vw;
+  /* height: 0px; */
+  /* margin: 0; */
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  justify-self: start;
+}
+
+.slider-content {
+  width: 100%;
+  height: 500px; /* animation-name: tonext, snap;
+  animation-timing-function: ease;
+  animation-duration: 4s;
+  animation-iteration-count: infinite; */
+  background-color: aqua;
+}
+
+.slider__navigation {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  display: inline-block;
+  /* text-align: end; */
+  justify-self: end;
+}
+
+.slider__label {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #333;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+.slider__input {
+  display: none;
+}
+
+.slider__navigation-list,
+.slider__navigation-item {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slider__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #333;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+#radio1:checked ~ .slider__container .slider__items {
+  transform: translateX(0%);
+}
+#radio2:checked ~ .slider__container .slider__items {
+  transform: translateX(-100%);
+}
+
+#radio3:checked ~ .slider__container .slider__items {
+  transform: translateX(-200%);
+}
+#radio4:checked ~ .slider__container .slider__items {
+  transform: translateX(-300%);
+}
+#radio1:checked ~ .slider__mems .slider__items {
+  transform: translateX(0%);
+}
+#radio2:checked ~ .slider__mems .slider__items {
+  transform: translateX(-100%);
+}
+#radio3:checked ~ .slider__mems .slider__items {
+  transform: translateX(-200%);
+}
+#radio4:checked ~ .slider__mems .slider__items {
+  transform: translateX(-300%);
+}
+
+/* #radio1:checked ~ .slider__mems #slider-item-5,
+#radio2:checked ~ .slider__mems #slider-item-6,
+#radio3:checked ~ .slider__mems #slider-item-7,
+#radio4:checked ~ .slider__mems #slider-item-8 {
+  animation-name: tonext, snap;
+  animation-timing-function: ease;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+#radio1:checked ~ .slider__container #slider-item-1,
+#radio2:checked ~ .slider__container #slider-item-2,
+#radio3:checked ~ .slider__container #slider-item-3,
+#radio4:checked ~ .slider__container #slider-item-4 {
+  animation-name: tonext, snap;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+} */
